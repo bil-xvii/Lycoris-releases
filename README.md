@@ -1,21 +1,59 @@
-# Lycoris — скачать / Download
+<p align="center">
+  <img src="assets/lycoris-github.svg" width="850" alt="LYCORIS — Диагностика. Обслуживание. Контроль.">
+</p>
 
-**Безопасная оптимизация Windows для работы и игр.** Чёрно-белый строгий интерфейс. Каждое изменение записывается в журнал и откатывается в один клик.
+**Lycoris помогает понять состояние Windows, найти проблемы и обслуживать ПК.** Нагрузка и состояние системы, понятные рекомендации, инструменты для работы и игр — в одном приложении.
 
-## ⬇ [Скачать последнюю версию → Releases](../../releases/latest)
+**[Скачать установщик или portable](https://github.com/bil-xvii/Lycoris-releases/releases/latest)** · [Portable одним файлом — Lycoris.exe](https://github.com/bil-xvii/Lycoris-releases/releases/latest/download/Lycoris.exe)
 
-Скачайте `Lycoris.exe` и запустите. Один файл, устанавливать ничего не нужно (.NET внутри). (В версии 1.0.0 файл ещё называется `MONOLITH.exe` — это та же программа.)
+Windows 10 2004+ / Windows 11, x64. .NET включён в загрузку. Интерфейс на русском и английском.
 
-- Windows 10 (2004+) / Windows 11, 64-bit.
-- Открывается **без запроса прав администратора** в режиме просмотра. Когда вы нажимаете кнопку, которая что-то меняет, Lycoris сам перезапускается с правами администратора и продолжает то же действие.
-- Интерфейс: русский / English (Настройки → «Язык / Language»; по умолчанию — язык Windows).
-- Перед каждым изменением сохраняется исходное значение и создаётся точка восстановления Windows; любое изменение откатывается.
-- Только документированные настройки. Никаких «чисток реестра», отключения обновлений, защитника или файла подкачки.
-- Проверка файла: `Get-FileHash Lycoris.exe -Algorithm SHA256` должна совпасть с `Lycoris.exe.sha256` из релиза.
-- Файл пока **не подписан** цифровой подписью, поэтому Windows (SmartScreen / окно UAC) может писать «Издатель: неизвестно». Если вы не доверяете файлу — не запускайте его.
+## Возможности
 
----
+- **Состояние ПК.** Мониторинг CPU, GPU, RAM, дисков и сети; диагностика проблем с оборудованием и настройками Windows.
+- **Помощник.** Объясняет найденные проблемы, открывает нужный раздел и может применить поддерживаемые исправления. Базовые подсказки работают без локальной AI-модели; для свободных вопросов можно подключить локальный чат через Ollama.
+- **Игры.** Библиотека и избранное, запуск с GameBoost и профили оптимизации под разные задачи.
+- **Автозапуск и службы.** Просмотр фоновых программ и управление поддерживаемыми настройками.
+- **Обслуживание.** Анализ и очистка временных файлов, системные инструменты и проверка драйверов.
+- **Контроль изменений.** Предпросмотр, подтверждение действий с правами администратора, журнал и откат поддерживаемых настроек.
 
-**Safe Windows optimization for work and gaming.** Every change is journaled and can be undone in one click; a restore point is created before each batch; only documented settings.
+## Как выглядит
 
-**Download:** [latest release](../../releases/latest) → `Lycoris.exe` (single file, Windows 10 2004+/11 64-bit, no installer). Opens read-only without UAC and asks for admin rights only when you press a button that changes something. Language: Russian / English. Verify with `Lycoris.exe.sha256`. Not code-signed yet — Windows may show "Unknown publisher".
+**Главная — состояние системы и ближайшие действия.**
+
+<img src="assets/screenshots/home.png" width="100%" alt="Lycoris 1.0.25: Главная со сводкой состояния ПК и рекомендуемыми действиями">
+
+<details>
+<summary>Помощник и игровая библиотека</summary>
+
+**Помощник — объяснения проблем и доступные действия.**
+
+<img src="assets/screenshots/assistant.png" width="100%" alt="Lycoris 1.0.25: Помощник с объяснением найденных проблем и доступными действиями">
+
+**Игры — библиотека, избранное и GameBoost.**
+
+<img src="assets/screenshots/games.png" width="100%" alt="Lycoris 1.0.25: игровая библиотека и управление GameBoost">
+
+</details>
+
+Скриншоты версии **1.0.25**. Показатели и рекомендации зависят от компьютера.
+
+## Перед запуском
+
+Простой режим доступен всем. Экспертный режим пока доступен только автору на его ПК. Просмотр и диагностика работают без прав администратора; действия, требующие повышения прав, подтверждаются.
+
+Откат предусмотрен для поддерживаемых настроек. Очистка файлов необратима; не каждое изменение можно отменить. Создание точки восстановления зависит от доступности и включённой защиты системы Windows. Результат оптимизации зависит от ПК и задачи — гарантий прироста FPS нет.
+
+У приложения пока нет сертификата Authenticode: Windows может показывать неизвестного издателя. Сверяйте SHA-256 с файлом из релиза. Проверка подписи обновлений ECDSA — отдельный механизм и не заменяет подпись издателя Windows.
+
+## English
+
+**Lycoris brings Windows diagnostics, maintenance and gaming tools into one app.** Monitor CPU, GPU, RAM, disks and network; understand detected issues with the Assistant; manage games, GameBoost, optimization profiles, startup, services, cleanup and drivers. Basic guidance works without a local AI model; optional Ollama chat supports open-ended questions.
+
+**[Download installer or portable](https://github.com/bil-xvii/Lycoris-releases/releases/latest)** · [Portable EXE](https://github.com/bil-xvii/Lycoris-releases/releases/latest/download/Lycoris.exe)
+
+Windows 10 2004+ / Windows 11 x64; .NET included; RU/EN interface. Simple mode is available to everyone; Expert mode is currently limited to the author's PC. Review and confirm changes requiring administrator rights. Only supported settings can be rolled back; cleanup is irreversible. Restore points require available and enabled Windows System Protection. Performance gains are not guaranteed.
+
+Screenshots show the real **1.0.25** release on a specific PC. The app has no Authenticode certificate yet, so Windows may show “Unknown publisher”. Verify the release SHA-256; ECDSA update verification is separate from Windows publisher signing.
+
+[Исходный код / Source](https://github.com/bil-xvii/Lycoris) · [Лицензия / License](LICENSE.md)
