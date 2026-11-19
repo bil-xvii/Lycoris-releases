@@ -22,6 +22,14 @@ Windows 10 2004+ / Windows 11, x64. .NET включён в загрузку. И�
 - **Контроль изменений.** Проверка ПК без изменений системы, предпросмотр и повторная проверка плана перед установкой. Подтверждение действий с правами администратора, журнал и откат поддерживаемых настроек.
 - **Актуальные сведения.** Открытые списки программ, служб и автозапуска обновляются при возвращении в окно и по интервалу, когда нет игры или другой операции. Поиск новых версий продолжается при работе в трее; установка подтверждается и проверяет подпись релиза.
 
+## Разовое закрытие программ в 1.0.33
+
+Откройте **Игры → Игровой сеанс → Закрытие программ → Настроить**. Отметьте запущенные программы или добавьте их по имени, затем нажмите **Закрыть выбранные сейчас**. В предпросмотре указаны PID, полный путь к исполняемому файлу и время запуска в UTC для каждого процесса. После подтверждения Lycoris сначала отправляет обычный запрос на закрытие окна. Принудительное завершение оставшихся процессов требует отдельного подтверждения.
+
+Кнопка выполняет только разовое закрытие выбранных вами программ. Схема питания, приоритет игры и очистка списка ожидания памяти относятся к настройкам игрового сеанса. Кнопка **Сохранить** отдельно обновляет список для будущих сеансов. Зарегистрированные игры, защищённые компоненты Windows и защищённые инструменты разработки исключены из закрытия. Итог показывает, сколько процессов действительно завершилось. Эффект на FPS и расход памяти зависит от ПК и выбранных программ.
+
+В командной строке вызов `Lycoris.exe --close-background-apps <имена>` с именами через запятую выводит JSON предпросмотра и 64-символьный отпечаток точного плана в поле `plan`. Для выполнения повторите список в консоли с правами администратора и передайте `--yes --plan <отпечаток>`. Чтобы разрешить принудительное завершение после обычного закрытия окна, добавьте `--force` в обе команды. При изменении набора процессов сформируйте новый план.
+
 ## Как выглядит
 
 **Главная — состояние системы и ближайшие действия.**
@@ -80,5 +88,13 @@ Gaming and streaming presets use an applicable Balanced plan, preserving compati
 Windows 10 2004+ / Windows 11 x64; .NET included; RU/EN interface. Simple mode is available to everyone; Expert mode is currently limited to the author's PC. Review and confirm changes requiring administrator rights. Only supported settings can be rolled back; file cleanup is irreversible. Restore points require available and enabled Windows System Protection. Performance gains are not guaranteed.
 
 Dashboard advice shows **1.0.32** in a disposable Windows CI environment; Assistant shows **1.0.32** with a demo conversation. The removal panel shows **1.0.30** in a Windows test environment; the remaining screenshots show **1.0.26**. The app has no Authenticode certificate yet, so Windows may show “Unknown publisher”. Verify the release SHA-256; ECDSA update verification is separate from Windows publisher signing.
+
+### Close selected programs once in 1.0.33
+
+Open **Games → Game session → Closing programs → Set up**. Select running programs or add them by name, then click **Close selected now**. The preview shows each process ID (PID), full executable path and UTC start time. After confirmation, Lycoris first sends a normal window-close request. Forced termination of remaining processes requires separate confirmation.
+
+This action closes only eligible programs you select. The power plan, game priority and standby memory cleanup are game session settings. Use **Save** separately to update the list for future sessions. Registered games, protected Windows components and protected development tools are excluded from closure. The result reports how many processes actually exited. The effect on FPS and memory use depends on the PC and the selected programs.
+
+On the command line, `Lycoris.exe --close-background-apps <names>` takes comma-separated names and returns a JSON preview with a 64-character fingerprint of the exact plan in the `plan` field. To run the plan, repeat the list in an administrator terminal and pass `--yes --plan <fingerprint>`. Add `--force` to both commands to allow forced termination after normal window closure. Generate a fresh plan if the set of processes changes.
 
 [Исходный код / Source](https://github.com/bil-xvii/Lycoris) · [Лицензия / License](LICENSE.md)
