@@ -15,7 +15,7 @@ Windows 10 2004+ / Windows 11, x64. .NET включён в загрузку. И�
 - **Программы и драйверы.** Рекомендации по подтверждённой потребности: например, игровые службы для обнаруженного Xbox. Ошибка сканирования или старый кэш не считаются отсутствием программы; ручной выбор сохранён.
 - **Игры и профили.** Библиотека, избранное и GameBoost. Профили для игр, работы, стриминга и свой набор учитывают подтверждённую применимость аппаратных настроек.
 - **Обслуживание.** Автозапуск и службы, анализ и очистка временных файлов, системные инструменты.
-- **Удаление и отключение.** Отдельная панель с объяснениями: программу можно рассмотреть для удаления, её автозапуск можно отключить, компонент стоит оставить или нужны дополнительные сведения. Учитываются признаки установщика, системных компонентов и общих библиотек; неизвестная программа не объявляется ненужной. Удаление выполняется через штатный список Windows, отключение — через существующие проверки автозапуска.
+- **Удаление и отключение.** Две кнопки автоматически подбирают и отмечают подтверждённые необязательные программы для удаления или записи автозапуска для отключения. Перед выполнением можно исключить любые позиции; подтверждается точный список. Программы удаляются штатным деинсталлятором через WinGet, отключение автозапуска сохраняет файлы и допускает откат. Автоматическое удаление пока поддерживает подтверждённые установки VLC, OBS Studio и 7-Zip. Неизвестные и системные компоненты автоматически не выбираются; ручная проверка в Windows сохранена.
 - **Разбор служб.** Возможные будущие функции сохраняются через обратимую настройку запуска. Удаление остатков ограничено проверенными сценариями: сейчас только простой остаток Everything после подтверждения удаления программы; неизвестные службы не удаляются автоматически.
 - **Контроль изменений.** Проверка ПК без изменений системы, предпросмотр и повторная проверка плана перед установкой. Подтверждение действий с правами администратора, журнал и откат поддерживаемых настроек.
 
@@ -28,9 +28,9 @@ Windows 10 2004+ / Windows 11, x64. .NET включён в загрузку. И�
 <details>
 <summary>Удаление, помощник, приложения и игровая библиотека</summary>
 
-**Удаление и отключение — решения с объяснениями и отдельный список автозапуска.**
+**Удаление и отключение — автоматический подбор кандидатов и отдельный список автозапуска.**
 
-<img src="assets/screenshots/removal.png" width="100%" alt="Lycoris 1.0.28: панель удаления и отключения со статусами программ, поиском и фильтром">
+<img src="assets/screenshots/removal.png" width="100%" alt="Lycoris 1.0.29: панель удаления и отключения с двумя кнопками автоматического подбора, поиском и фильтром">
 
 **Помощник — объяснения проблем и доступные действия.**
 
@@ -46,7 +46,7 @@ Windows 10 2004+ / Windows 11, x64. .NET включён в загрузку. И�
 
 </details>
 
-Панель удаления показана в **1.0.28**, остальные скриншоты — из **1.0.26**. Показатели и рекомендации зависят от компьютера.
+Панель удаления показана в **1.0.29** в тестовой среде Windows; остальные скриншоты — из **1.0.26**. Показатели и рекомендации зависят от компьютера.
 
 ## Перед запуском
 
@@ -64,10 +64,10 @@ Windows 10 2004+ / Windows 11, x64. .NET включён в загрузку. И�
 
 The Assistant also handles explicit enable, disable, start and stop service requests without Ollama, with an exact plan and verified outcome. Start policy and current running state are separate. Service residue removal currently supports only a constrained Everything remnant after you confirm the program was uninstalled; unknown services are not deleted. Supported removal records can be restored disabled, including from Simple mode.
 
-The separate **Uninstall and disable** panel explains which registered apps can be considered for removal, which startup entries are optional at sign-in, and which components should be kept or reviewed. Unknown apps are not labelled unnecessary. Uninstalling opens Windows Settings; startup actions use the existing guarded page. Gaming and streaming presets use an applicable Balanced plan, preserving compatible OEM plans. Automatic disk cleanup and other settings with trade-offs remain individual choices.
+The **Remove & disable** panel can automatically select verified candidates for uninstalling or disabling startup. Deselect anything you want to keep, then confirm the exact list. Automatic uninstall currently supports verified VLC, OBS Studio and 7-Zip installations through WinGet; it has no Lycoris undo. Disabling supported startup entries preserves their files and has an exact undo. Unknown and system components are not automatically selected. Manual Windows Settings and startup review links remain available. Gaming and streaming presets use an applicable Balanced plan, preserving compatible OEM plans. Automatic disk cleanup and other settings with trade-offs remain individual choices.
 
 Windows 10 2004+ / Windows 11 x64; .NET included; RU/EN interface. Simple mode is available to everyone; Expert mode is currently limited to the author's PC. Review and confirm changes requiring administrator rights. Only supported settings can be rolled back; file cleanup is irreversible. Restore points require available and enabled Windows System Protection. Performance gains are not guaranteed.
 
-The uninstall panel screenshot shows **1.0.28**; the other screenshots show **1.0.26** on a specific PC. The app has no Authenticode certificate yet, so Windows may show “Unknown publisher”. Verify the release SHA-256; ECDSA update verification is separate from Windows publisher signing.
+The removal panel screenshot shows **1.0.29** in a Windows test environment; the other screenshots show **1.0.26** on a specific PC. The app has no Authenticode certificate yet, so Windows may show “Unknown publisher”. Verify the release SHA-256; ECDSA update verification is separate from Windows publisher signing.
 
 [Исходный код / Source](https://github.com/bil-xvii/Lycoris) · [Лицензия / License](LICENSE.md)
